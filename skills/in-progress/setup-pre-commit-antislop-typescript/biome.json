@@ -1,0 +1,8 @@
+{
+  "linter": { "enabled": false },
+  "formatter": { "enabled": true, "indentStyle": "space" },
+  "assist": {
+    "enabled": true,
+    "actions": { "source": { "organizeImports": "on" } }
+  }
+}

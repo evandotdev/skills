@@ -1,0 +1,21 @@
+# Merge these jobs into .gitlab-ci.yml, or include this file.
+# Substitute the detected package manager. Pin the gitleaks image
+# to a tag published at least 7 days ago.
+quality:
+  stage: test
+  image: node:24
+  script:
+    - corepack enable
+    - pnpm install --frozen-lockfile
+    - pnpm exec oxlint
+    - pnpm exec biome check
+    - pnpm knip
+    - pnpm run typecheck && pnpm run build
+
+gitleaks:
+  stage: test
+  image:
+    name: gitleaks/gitleaks:v8.30.1
+    entrypoint: [""]
+  script:
+    - gitleaks detect --source "$CI_PROJECT_DIR" --no-banner --verbose

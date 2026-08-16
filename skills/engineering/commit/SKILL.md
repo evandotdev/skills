@@ -49,8 +49,12 @@ git log --pretty=format:%s \
 ## Steps
 
 1. Infer from the prompt if the user provided specific file paths/globs and/or additional instructions.
-2. Review `git status` and `git diff` to understand the current changes (limit to argument-specified files if provided). Note that git diff will not include untracked files.
-3. Run the following command to see commonly used scopes.
+2. Check git hooks. List files in `.git/hooks` that are not `*.sample`. If that list is empty:
+   - If `lefthook.yml` exists at the repo root, stop and ask the user to run `hooks:install` or `lefthook install`.
+   - Otherwise stop and tell the user to run a setup skill that installs git hooks. Do not name a specific setup skill.
+   Do not commit until they have installed hooks or explicitly told you to continue without them.
+3. Review `git status` and `git diff` to understand the current changes (limit to argument-specified files if provided). Note that git diff will not include untracked files.
+4. Run the following command to see commonly used scopes.
 
 ```bash
 git log --pretty=format:%s \
@@ -66,9 +70,9 @@ git log --pretty=format:%s \
    | head -n 50
 ```
 
-4. If there are ambiguous extra files, ask the user for clarification before committing.
-5. Stage only the intended files (all changes if no files specified).
-6. Run `git commit -m "<subject>"` (and `-m "<body>"` if needed).
+5. If there are ambiguous extra files, ask the user for clarification before committing.
+6. Stage only the intended files (all changes if no files specified).
+7. Run `git commit -m "<subject>"` (and `-m "<body>"` if needed).
 
 ## Examples
 

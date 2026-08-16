@@ -1,0 +1,29 @@
+# Single-package default. Substitute the detected package manager for `pnpm`.
+# For each JS/TS workspace package, add a biome-<name> command with `root: <pkg>`.
+pre-commit:
+  parallel: false
+  commands:
+    gitleaks:
+      run: gitleaks protect --staged --redact --no-banner
+    knip-fix:
+      run: pnpm knip --fix --fix-type exports,types --format
+      stage_fixed: true
+    biome-format:
+      glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc,css}"
+      run: pnpm exec biome format --write --no-errors-on-unmatched --files-ignore-unknown=true --colors=off {staged_files}
+      stage_fixed: true
+    oxlint:
+      glob: "*.{js,ts,cjs,mjs,jsx,tsx}"
+      run: pnpm exec oxlint {staged_files}
+
+pre-push:
+  parallel: false
+  commands:
+    oxlint:
+      run: pnpm exec oxlint
+    biome-check:
+      run: pnpm exec biome check
+    knip:
+      run: pnpm knip
+    typecheck-build:
+      run: pnpm run typecheck && pnpm run build

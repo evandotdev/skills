@@ -1,12 +1,12 @@
 ## What it does
 
-`commit` turns the current working tree into one or more Conventional Commits-style git commits. It reads `git status` and `git diff`, infers type and scope from the repo's recent messages, then stages and commits. It never pushes.
+`commit` turns the current working tree into one or more Conventional Commits-style git commits. It reads `git status` and `git diff`, infers type and scope from the repo's recent messages, then stages and commits. It never pushes. If `.git/hooks` has only sample files, it stops and asks you to install hooks before it will commit.
 
 The subject is the whole artifact: `<type>(scope): <description>` in imperative present tense, no trailing period, no breaking-change markers, no sign-off. A body is optional. Unrelated files stay out unless you say otherwise, and a large mixed tree is split into narrower commits rather than one dump.
 
 ## When to reach for it
 
-Type `/commit`, or the [agent](https://www.aihero.dev/ai-coding-dictionary/agent) reaches for it automatically when a task fits.
+You invoke this by typing `/commit` — the [agent](https://www.aihero.dev/ai-coding-dictionary/agent) won't reach for it on its own.
 
 | Your situation                                | Skill                                                                                 |
 | --------------------------------------------- | ------------------------------------------------------------------------------------- |
@@ -25,6 +25,10 @@ The leading word is **narrow**. The skill would rather write three small commits
 
 No. Commit only. Push stays a separate, explicit request.
 
+**What if the repo has no git hooks?**
+
+It stops. Only `.sample` files in `.git/hooks` means hooks were never installed. If `lefthook.yml` is already in the repo it asks you to run `lefthook install`; otherwise it tells you to run a setup skill and does not pick which one. Say "commit anyway" if you want to skip.
+
 **Will it commit files I'm unsure about?**
 
 Not if it notices. Ambiguous extras and unrelated changes get a question before anything is staged. If you name files, only those files go in.
@@ -36,6 +40,7 @@ No. [implement](https://aihero.dev/skills-implement) builds work and then commit
 ## It's working if
 
 - The subject matches Conventional Commits (`feat`, `fix`, `docs`, …) and reads as an imperative.
+- A repo with only sample hooks was stopped on, or you explicitly said to continue.
 - Unrelated files were left unstaged, or you were asked about them first.
 - `git log -1` shows the new commit and `git status` is clean for the files you meant to include.
 - Nothing was pushed.

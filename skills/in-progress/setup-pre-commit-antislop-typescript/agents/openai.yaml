@@ -1,0 +1,5 @@
+interface:
+  display_name: "Setup Pre-Commit Anti-Slop TypeScript"
+  short_description: "Lefthook + Biome + Oxlint + Knip + gitleaks"
+policy:
+  allow_implicit_invocation: false
