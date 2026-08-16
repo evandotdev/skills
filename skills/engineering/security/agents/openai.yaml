@@ -1,0 +1,3 @@
+interface:
+  display_name: "Security"
+  short_description: "Supply-chain guardrails and security review"
