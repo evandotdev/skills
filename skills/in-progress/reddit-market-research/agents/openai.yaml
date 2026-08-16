@@ -1,0 +1,4 @@
+interface:
+  display_name: "Reddit Market Research"
+  short_description: "Browse Reddit for pain points, products, and pricing"
+  default_prompt: "Use $reddit-market-research to research $ARGUMENTS on Reddit."
