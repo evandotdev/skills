@@ -1,0 +1,3 @@
+interface:
+  display_name: "Find Function Clones"
+  short_description: "Hunt same-signature TypeScript clones"
