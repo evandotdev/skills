@@ -1,0 +1,5 @@
+interface:
+  display_name: "Codex Handoff"
+  short_description: "Hand off to a Codex App thread"
+policy:
+  allow_implicit_invocation: false
