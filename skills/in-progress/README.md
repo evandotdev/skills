@@ -18,3 +18,5 @@ npx skills@latest add mattpocock/skills --skill=<name>
 - **[setup-pre-commit-antislop-typescript](./setup-pre-commit-antislop-typescript/SKILL.md)** — Install Lefthook, Biome format, Oxlint with anti-slop, Knip, and gitleaks in a TypeScript repo. User-invoked.
 - **[ripgrep-find-func-clones](./ripgrep-find-func-clones/SKILL.md)** — Find TypeScript function clones (same name and params) and grill a shared module. Does not extract. Model-invoked.
 - **[reddit-market-research](./reddit-market-research/SKILL.md)** — Browse Reddit with an authenticated browser, fan out one subagent per subreddit, and collect pain points, products, pros/cons, and pricing with comment permalinks. Model-invoked. Experimental.
+- **[nextjs-optimize-images](./nextjs-optimize-images/SKILL.md)** — Replace application `<img>` elements with correctly sized and configured `next/image` components. User-invoked.
+- **[nextjs-optimize-links](./nextjs-optimize-links/SKILL.md)** — Replace links to internal pages with `next/link` while preserving intentional native anchors. User-invoked.

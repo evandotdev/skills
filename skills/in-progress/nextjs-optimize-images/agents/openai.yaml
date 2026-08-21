@@ -1,0 +1,5 @@
+interface:
+  display_name: "Optimize Next.js Images"
+  short_description: "Replace img elements with optimized Next.js images"
+policy:
+  allow_implicit_invocation: false

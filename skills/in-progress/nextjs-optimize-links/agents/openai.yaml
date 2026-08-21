@@ -1,0 +1,5 @@
+interface:
+  display_name: "Optimize Next.js Links"
+  short_description: "Replace internal anchors with optimized Next.js links"
+policy:
+  allow_implicit_invocation: false
