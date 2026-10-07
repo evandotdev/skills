@@ -13,7 +13,7 @@ You invoke this by typing `/commit` — the [agent](https://www.aihero.dev/ai-co
 | Changes are ready and you want them committed | This one                                                                              |
 | A spec or ticket still needs building         | [implement](https://aihero.dev/skills-implement), which commits at the end of the run |
 | You want the diff reviewed before it lands    | [code-review](https://aihero.dev/skills-code-review)                                  |
-| Git has stopped on merge or rebase conflicts  | [resolving-merge-conflicts](https://aihero.dev/skills-resolving-merge-conflicts)      |
+| Git has stopped on merge or rebase conflicts  | Work the conflict in the current session. There is no dedicated skill for it.        |
 
 ## Conventional subjects, narrow scopes
 
